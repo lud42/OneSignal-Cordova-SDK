@@ -105,6 +105,26 @@
     <framework src="src/windows/OneSignalSDK_WP_WNS.dll" custom="true" />
     <framework src="src/windows/Newtonsoft.Json.dll" custom="true" />
   </platform>
+  
+  <platform name="browser">
+    <config-file target="config.xml" parent="/*">
+      <feature name="OneSignalPush">
+        <param name="browser-package" value="OneSignalPush" />
+      </feature>
+    </config-file>
+    
+    <js-module src="www/OneSignalSDK.js" name="OneSignalSDK">
+      <runs />
+      <clobbers target="OneSignalPushProxy" />
+    </js-module>
+
+    <js-module src="src/browser/OneSignalPushProxy.js" name="OneSignalPushProxy">
+      <runs />
+    </js-module>
+
+    <framework src="src/browser/OneSignalSDK.j" custom="true" />
+    <framework src="src/browser/OneSignalSDK.js.map" custom="true" />
+  </platform>
 
 </plugin>
 
